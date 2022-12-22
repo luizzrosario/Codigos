@@ -15,11 +15,11 @@ public class Teste {
         }
         System.out.println();
 
-        // SortInts.selectionSort(list);
+        SortInts.selectionSort(list);
         // SortInts.bubbleSort(list);
         // SortInts.insertionSort(list);
         // SortInts.mergeSort(list);
-        SortInts.quickSort(list);
+        // SortInts.quickSort(list);
 
         for (int i = 0; i < list.length; i++) {
             System.out.print("|" + list[i]);
