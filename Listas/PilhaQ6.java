@@ -1,8 +1,6 @@
-package Listas;
-
 import java.util.Scanner;
 
-import Listas.Estruturas.List;
+import Estruturas.List;
 
 // Criando a classe carro
 class Carro {

@@ -1,7 +1,6 @@
-package Listas;
 import java.util.Scanner;
 
-import Listas.Estruturas.CircularLinkedList;
+import Estruturas.CircularLinkedList;
 
 public class ListEncQ4 {
     public static void sorteioDoJosephus(CircularLinkedList<String> soldados, int n) {

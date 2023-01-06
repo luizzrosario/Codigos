@@ -1,6 +1,4 @@
-package Listas;
-
-import Listas.Estruturas.Stack;
+import Estruturas.Stack;
 
 public class PilhaQ5 {
   public static boolean validaExpressao(String expression) {

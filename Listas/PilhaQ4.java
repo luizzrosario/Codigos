@@ -1,8 +1,6 @@
-package Listas;
-
 import java.util.Random;
 
-import Listas.Estruturas.Stack;
+import Estruturas.Stack;
 
 public class PilhaQ4 {
     public static void embaralhar(Stack<Integer> p1, Stack<Integer> p2, Stack<Integer> p3) {

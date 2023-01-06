@@ -1,6 +1,4 @@
-package Listas;
-
-import Listas.Estruturas.Stack;
+import Estruturas.Stack;
 
 /* Aqui é mais fácil utilizar uma pilha. Pois, como estamos lidando com fatoração e precisamos colocar em ordem DESCRESCENTE, o ultimo numero a entrar na pilha será o maior, e o primeiro, o menor. Sendo assim, quando retirar-mos da fila para imprimir na tela, a ordem estará correta */
 

@@ -1,4 +1,4 @@
-package Listas.Estruturas;
+package Estruturas;
 
 public class CircularLinkedList<T> {
     // Classe Node (só vai servir pra essa lista mesmo já que só tem o next)

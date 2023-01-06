@@ -1,4 +1,4 @@
-package Listas.Estruturas;
+package Estruturas;
 
 public class Stack<T> extends List<T> {
   // Construtor que cria uma pilha vazia com tamanho inicial padrão de 10

@@ -1,4 +1,4 @@
-package Listas.Estruturas;
+package Estruturas;
 
 public class Queue<T> {
     private List<T> elementos;

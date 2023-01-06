@@ -1,4 +1,4 @@
-package Listas.Estruturas;
+package Estruturas;
 
 public class List<T> {
     // O array que armazena os elementos da lista

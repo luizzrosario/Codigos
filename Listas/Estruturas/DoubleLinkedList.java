@@ -1,4 +1,4 @@
-package Listas.Estruturas;
+package Estruturas;
 
 public class DoubleLinkedList<T> {
     // Estrutura da lista

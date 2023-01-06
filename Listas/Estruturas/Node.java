@@ -1,4 +1,4 @@
-package Listas.Estruturas;
+package Estruturas;
 
 //Classe node duplamente ligado
 public class Node<T> {

@@ -1,5 +1,3 @@
-package Listas;
-
 import java.util.Arrays;
 
 public class OrdenacaoQ1 {

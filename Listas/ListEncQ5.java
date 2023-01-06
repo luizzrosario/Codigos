@@ -1,6 +1,4 @@
-package Listas;
-
-import Listas.Estruturas.*;
+import Estruturas.*;
 
 public class ListEncQ5 {
     public static boolean ehPalindromoIterativo(DoubleLinkedList<Character> list) {
