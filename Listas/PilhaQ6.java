@@ -1,57 +1,62 @@
+import Estruturas.*;
 import java.util.Scanner;
-
-import Estruturas.List;
-
-// Criando a classe carro
-class Carro {
-    private String placa;
-
-    public Carro(String placa) {
-        this.placa = placa;
-    }
-
-    public String getPlaca() {
-        return placa;
-    }
-}
 
 public class PilhaQ6 {
     public static void main(String[] args) {
-        // Cria uma lista para armazenar os carros no estacionamento
-        List<Carro> estacionamento = new List<>();
+        Scanner sc = new Scanner(System.in);
+        Stack<String> estacionamento = new Stack<>();
+        int manobras = 0;
 
-        Scanner scanner = new Scanner(System.in);
-        while (scanner.hasNextLine()) {
-            String linha = scanner.nextLine();
-            String[] partes = linha.split(" ");
-            String operacao = partes[0];
-            String placa = partes[1];
+        // Processa as entradas
+        while (sc.hasNextLine()) {
+            String[] entrada = sc.nextLine().split(" "); // Pega a linha divitada e divide em uma array
+            if (entrada.length < 2) {// Se só tiver 1 item ele invalida
+                System.out.println("Entrada inválida");
+                continue;
+            }
+
+            // Só pega o item 1 e 2 da array
+            String operacao = entrada[0];
+            String placa = entrada[1];
 
             if (operacao.equals("E")) {
-                // Chegada de um carro
-                Carro carro = new Carro(placa);
                 if (estacionamento.size() < 10) {
-                    // Existe vaga no estacionamento, adiciona o carro
-                    estacionamento.add(carro);
-                    System.out.println("Carro " + placa + " entrou no estacionamento");
+                    // Há vaga, adiciona o carro no estacionamento
+                    estacionamento.push(placa);
+                    System.out.println("Carro " + placa + " entrou no estacionamento. Espaço livre: "
+                            + (10 - estacionamento.size()));
                 } else {
-                    // Não existe vaga, o carro parte sem entrar
-                    System.out.println("Carro " + placa + " saiu sem entrar no estacionamento");
+                    // Não há vaga, o carro sai sem entrar no estacionamento
+                    System.out.println("Carro " + placa + " saiu sem entrar no estacionamento.");
                 }
             } else if (operacao.equals("S")) {
-                // Saída de um carro
-                int manobras = 0;
-                while (!estacionamento.get(0).getPlaca().equals(placa)) {
-                    // O carro a ser retirado não está no topo da fila, remove todos os carros da
-                    // frente
-                    estacionamento.remove(0);
+                // Cria uma lista temporária para armazenar os carros enquanto são realizadas as
+                // manobras
+                List<String> temp = new List<>();
+
+                // Percorre a pilha até encontrar o carro da placa especificada
+                while (!estacionamento.isEmpty() && !estacionamento.topo().equals(placa)) {
+                    // Adiciona o carro à lista temporária
+                    temp.add(estacionamento.pop());
                     manobras++;
                 }
-                // Remove o carro a ser retirado
-                estacionamento.remove(0);
-                System.out.println("Carro " + placa + " saiu do estacionamento com " + manobras + " manobras");
+
+                // Verifica se o carro foi encontrado
+                if (estacionamento.isEmpty()) {
+                    // O carro não está no estacionamento
+                    System.out.println("Carro " + placa + " não encontrado no estacionamento.");
+                } else {
+                    // Remove o carro do estacionamento
+                    estacionamento.pop();
+                    System.out.println("Carro " + placa + " saiu do estacionamento. Número de manobras: " + manobras);
+                    manobras = 0;
+                }
+
+                // Adiciona os carros da lista temporária de volta à pilha
+                for (int i = temp.size() - 1; i >= 0; i--) {
+                    estacionamento.push(temp.get(i));
+                }
             }
         }
-        scanner.close();
     }
 }
