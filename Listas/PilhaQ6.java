@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class PilhaQ6 {
     public static void main(String[] args) {
+        @SuppressWarnings("all") // Só pra o scanner não reclamar
         Scanner sc = new Scanner(System.in);
         Stack<String> estacionamento = new Stack<>();
         int manobras = 0;
