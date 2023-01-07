@@ -77,10 +77,10 @@ public class BinaryTree<T extends Comparable<T>> {
         }
     }
 
-    public int alturaArvoreBinaria(){
+    public int alturaArvoreBinaria() {
         return alturaArvoreBinaria(root);
     }
-    
+
     public int alturaArvoreBinaria(NodeTree<T> raiz) {
         if (raiz == null) {
             return 0;
@@ -90,7 +90,6 @@ public class BinaryTree<T extends Comparable<T>> {
             return Math.max(alturaEsquerda, alturaDireita) + 1;
         }
     }
-    
 
     public int getSize() {
         return getSize(this.root);
@@ -133,25 +132,28 @@ public class BinaryTree<T extends Comparable<T>> {
         this.root = null;
     }
 
-    public int verificaHeap(){
+    public int verificaHeap() {
         return verificaHeap(root);
     }
 
     public int verificaHeap(NodeTree<T> raiz) {
-        if (raiz == null) return 0;  // caso base: árvore vazia
-    
-        int left = verificaHeap(raiz.left);  // verifica se a subárvore esquerda é um heap
-        int right = verificaHeap(raiz.right);  // verifica se a subárvore direita é um heap
-    
-        if (left == 0 || right == 0) return 0;  // se pelo menos uma das subárvores não for heap, a árvore inteira também não é heap
-        if (left == -1 && right == -1) {  // se as duas subárvores são minheaps
+        if (raiz == null)
+            return 0; // caso base: árvore vazia
+
+        int left = verificaHeap(raiz.left); // verifica se a subárvore esquerda é um heap
+        int right = verificaHeap(raiz.right); // verifica se a subárvore direita é um heap
+
+        if (left == 0 || right == 0)
+            return 0; // se pelo menos uma das subárvores não for heap, a árvore inteira também não é
+                      // heap
+        if (left <= -1 && right <= -1) { // se as duas subárvores são minheaps
             if (raiz.data.compareTo(raiz.left.data) <= 0 && raiz.data.compareTo(raiz.right.data) <= 0) {
                 // se o nó raiz é menor ou igual aos filhos, é um minheap
                 return -1;
             } else {
                 return 0;
             }
-        } else if (left == 1 && right == 1) {  // se as duas subárvores são maxheaps
+        } else if (left >= 1 && right >= 1) { // se as duas subárvores são maxheaps
             if (raiz.data.compareTo(raiz.left.data) >= 0 && raiz.data.compareTo(raiz.right.data) >= 0) {
                 // se o nó raiz é maior ou igual aos filhos, é um maxheap
                 return 1;
@@ -159,7 +161,8 @@ public class BinaryTree<T extends Comparable<T>> {
                 return 0;
             }
         } else {
-            return 0;  // se uma subárvore for minheap e a outra for maxheap, a árvore inteira não é heap
+            return 0; // se uma subárvore for minheap e a outra for maxheap, a árvore inteira não é
+                      // heap
         }
     }
 }
