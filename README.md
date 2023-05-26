@@ -1,3 +1,1 @@
-# ED
-
-Repositório da matéria estrutura de dados
+# Repositório da matéria estrutura de dados
